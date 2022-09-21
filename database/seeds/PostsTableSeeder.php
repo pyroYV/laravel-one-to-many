@@ -19,7 +19,8 @@ class PostsTableSeeder extends Seeder
         for ($i=0; $i < 20; $i++) {
             $newPost = new Post();
             $newPost->post_title = $faker->realText(20);
-            $newPost->post_author = $faker->randomElement($users)->id;
+            $newPost->user_id = $faker->randomElement($users)->id;
+            $newPost->post_author = $faker->name();
             $newPost->post_content = $faker->paragraph(4);
             $newPost->post_creation_date = $faker->dateTimeThisYear();
             $newPost->post_image = $faker->imageUrl();
