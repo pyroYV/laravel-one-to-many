@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Post;
+use App\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,8 @@ class PostController extends Controller
     {
         //
         $posts = Post::all();
+        /* $posts = Auth::user()->posts; */
+
         return view('admin.posts.index', compact('posts'));
     }
 
