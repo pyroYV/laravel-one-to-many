@@ -48,9 +48,10 @@ class PostController extends Controller
     {
         $data = $request->all();
         $data['user_id']= Auth::user()->id;
+        $data['post_creation_date'] = new DateTime();
         $newPost = new Post();
-        $newPost->post_creation_date = new DateTime();
-        $newPost->create($data);
+        $newPost->fill($data);
+        $newPost->save();
 
         return redirect()->route('admin.posts.show', $newPost->id);
     }
