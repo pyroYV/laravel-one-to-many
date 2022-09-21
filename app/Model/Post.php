@@ -12,4 +12,8 @@ class Post extends Model
         'post_content',
         'post_image',
     ];
+
+    public function user(){
+        return $this->hasOne('App/User');
+    }
 }
