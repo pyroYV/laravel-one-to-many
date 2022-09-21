@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         //
         $posts = Post::all();
-        /* $posts = Auth::user()->posts; */
+        $posts = Auth::user()->posts;
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -47,8 +47,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['user_id']= Auth::user()->id;
         $newPost = new Post();
-        $newPost->post_author = Auth::user()->name;
         $newPost->post_creation_date = new DateTime();
         $newPost->create($data);
 

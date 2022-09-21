@@ -15,7 +15,7 @@ class RemoveAuthorColumnFromPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-            $table->dropColumn('post_author')
+            $table->dropColumn('post_author');
         });
     }
 

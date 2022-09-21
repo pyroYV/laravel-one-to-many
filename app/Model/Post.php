@@ -9,8 +9,10 @@ class Post extends Model
     //
     protected $fillable = [
         'post_title',
+        'user_id',
         'post_content',
         'post_image',
+        'post_creation_date'
     ];
 
     public function user(){
